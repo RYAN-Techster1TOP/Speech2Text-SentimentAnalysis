@@ -1,0 +1,177 @@
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family: 'Segoe UI', sans-serif;
+}
+
+body{
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+background:linear-gradient(135deg,#667eea,#764ba2,#ff758c,#ff7eb3);
+background-size:400% 400%;
+animation:gradientMove 15s ease infinite;
+overflow:hidden;
+}
+
+/* Animated gradient */
+
+@keyframes gradientMove{
+0%{background-position:0% 50%}
+50%{background-position:100% 50%}
+100%{background-position:0% 50%}
+}
+
+/* Floating blobs */
+
+.background-blobs span{
+position:absolute;
+width:300px;
+height:300px;
+border-radius:50%;
+filter:blur(100px);
+opacity:0.5;
+animation:float 10s infinite alternate;
+}
+
+.background-blobs span:nth-child(1){
+background:#ff7eb3;
+top:10%;
+left:10%;
+}
+
+.background-blobs span:nth-child(2){
+background:#7afcff;
+bottom:10%;
+right:10%;
+}
+
+.background-blobs span:nth-child(3){
+background:#ffd166;
+top:50%;
+left:60%;
+}
+
+@keyframes float{
+from{transform:translateY(0)}
+to{transform:translateY(-40px)}
+}
+
+/* Glass card */
+
+.glass{
+background:rgba(255,255,255,0.15);
+border-radius:20px;
+backdrop-filter:blur(15px);
+border:1px solid rgba(255,255,255,0.3);
+box-shadow:0 8px 32px rgba(0,0,0,0.3);
+padding:40px;
+width:420px;
+text-align:center;
+color:white;
+transition:0.4s;
+}
+
+.glass:hover{
+transform:translateY(-5px);
+box-shadow:0 12px 40px rgba(0,0,0,0.4);
+}
+
+h1{
+margin-bottom:30px;
+}
+
+/* File upload */
+
+.file-upload{
+display:block;
+padding:15px;
+border-radius:10px;
+background:rgba(255,255,255,0.2);
+cursor:pointer;
+transition:0.3s;
+margin-bottom:20px;
+}
+
+.file-upload:hover{
+background:rgba(255,255,255,0.3);
+}
+
+.file-upload input{
+display:none;
+}
+
+/* Button */
+
+.analyze-btn{
+padding:12px 25px;
+border:none;
+border-radius:10px;
+background:linear-gradient(45deg,#00f2fe,#4facfe);
+color:white;
+font-size:16px;
+cursor:pointer;
+transition:0.3s;
+position:relative;
+overflow:hidden;
+}
+
+.analyze-btn:hover{
+transform:scale(1.05);
+box-shadow:0 5px 20px rgba(0,0,0,0.3);
+}
+
+/* Ripple animation */
+
+.analyze-btn::after{
+content:"";
+position:absolute;
+width:0;
+height:0;
+background:rgba(255,255,255,0.4);
+border-radius:50%;
+transform:translate(-50%,-50%);
+opacity:0;
+transition:0.6s;
+}
+
+.analyze-btn:active::after{
+width:300px;
+height:300px;
+opacity:1;
+transition:0s;
+}
+
+/* Results */
+
+.result{
+margin-top:30px;
+padding:20px;
+background:rgba(255,255,255,0.2);
+border-radius:15px;
+}
+
+.sentiment{
+font-size:20px;
+font-weight:bold;
+margin-top:5px;
+}
+
+/* Fade animation */
+
+.fade-in{
+animation:fadeIn 1s ease;
+}
+
+@keyframes fadeIn{
+from{
+opacity:0;
+transform:translateY(20px);
+}
+to{
+opacity:1;
+transform:translateY(0);
+}
+}
